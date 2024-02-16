@@ -1,55 +1,69 @@
-## Chapterly
+# Chapterly
 
-![ic_launcher-playstore](https://github.com/jordan-jakisa/novelly/assets/72340216/1881cd4f-e2c4-473c-97b0-c4c6df9d6bc4)
+Chapterly is an open source android application built to help users to discover and read books seamlessly and free.
 
+## Project Overview
 
-Chapterly is a fantastic Android application that brings a seamless reading experience to your fingertips. Discover a world of books, manage your library, and enjoy a variety of features designed for book enthusiasts.
+- **Inspiration:** Chapterly was inspired by my struggle with limited access to free books, leading to the creation of a platform that facilitates free book discovery and reading.
 
-[![Download APK](https://upload.wikimedia.org/wikipedia/commons/1/11/Download_apk.png)](https://github.com/jordan-jakisa/novelly/releases/download/v0.0.1-alpha/chapterly-v0.0.1-alpha.apk)
+- **Free Access:** The app's mission is to provide users with easy and free access to a diverse collection of books, enabling seamless search, download, and reading experiences.
 
+- **Community-Driven:** Chapterly encourages user contributions of PDF books, fostering a collaborative environment that empowers individuals and promotes a shared passion for reading.
 
-## Size
+## Download APK for Reading
 
-- **APK Size:** 57.5 MB
+If you prefer to install the app directly on your Android device without using Android Studio, you can download the APK file from the [releases section](https://github.com/jordan-jakisa/Chapterly/releases). Once downloaded, install the APK on your device to start reading!
 
+## Open in Android Studio
 
+1. Open Android Studio.
+2. Click on "Open an existing Android Studio project."
+3. Navigate to the directory where you cloned Chapterly and select it.
 
-## Key Features
+## Build and Run
 
-- **Swipe to Delete:** Easily manage your downloaded books by swiping to delete.
-- **Like Books:** Save your favorite books with the like feature.
-- **Improved UI:** Enjoy a clean and intuitive user interface.
-- **Efficient Search:** Find your favorite books quickly with an improved and efficient search.
-- **Search by Genre:** Explore books by genre, making it easy to discover new reads.
-- **Dynamic Color (Android 12+):** Experience dynamic color changes based on your system's color scheme.
-- **Dark Mode:** Read comfortably in low-light conditions with the dark mode.
-- **Community Integration:** Join our Discord and Telegram communities for discussions and updates.
+1. Build the project using the build button in the toolbar or by pressing `Ctrl + F9` (Windows/Linux) or `Cmd + F9` (Mac).
+2. Run the app on an emulator or a connected device using the run button in the toolbar or by pressing `Shift + F10` (Windows/Linux) or `Cmd + R` (Mac).
 
-## Screenshots
-![Beige minimalist photo collage](https://github.com/jordan-jakisa/novelly/assets/72340216/1e826123-5a3c-463c-8ddc-7f2b7cdf469e)
+## Technologies Used
 
-## Installation
+Chapterly is built with a robust technology stack to provide a seamless reading experience:
 
-### Prerequisites
+- **Kotlin:** The app is developed using the Kotlin programming language.
+- **Gradle KTS:** Utilizes Gradle KTS (Kotlin Script) for build automation, making the build process more concise and expressive.
+- **Firebase:** Leverages Firebase services for backend functionalities such as authentication and cloud storage.
+- **Dagger Hilt:** Employs Dagger Hilt for efficient dependency injection, ensuring a modular and maintainable codebase.
+- **Jetpack Compose:** Takes advantage of Jetpack Compose for building modern and reactive UIs with a declarative syntax.
+- **Coil:** Integrates Coil for image loading, providing efficient and customizable image loading capabilities.
+- **Coroutines:** Implements Kotlin Coroutines to simplify asynchronous programming and enhance app responsiveness.
+- **ViewModel:** Utilizes Android ViewModel to manage UI-related data and handle the app's lifecycle.
+- **WorkManager:** Incorporates WorkManager for background task scheduling, ensuring efficient execution of tasks like data synchronization.
 
-- Android device with OS version 5.0 and above.
+## Features
 
-### Steps
+- **Organize Your Library:** Easily organize and manage your PDF book collection.
+- **Intuitive Reading Experience:** Enjoy a user-friendly interface for comfortable reading.
+- **Bookmarking:** Bookmark your favorite pages for quick access.
+- **Night Mode:** Enable night mode for comfortable reading in low-light conditions.
 
-1. Download the APK file from the [latest release](https://github.com/jordan-jakisa/novelly/releases/download/v0.0.1-alpha/chapterly-v0.0.1-alpha.apk).
-2. On your Android device, navigate to **Settings > Security > Install unknown apps.**
-3. Choose your preferred browser or file manager app and enable **Allow from this source.**
-4. Open the downloaded APK file and follow the on-screen instructions to install.
+## Contributing
 
-## Community
+We welcome contributions from the community! If you'd like to contribute to Chapterly, please follow these steps:
 
-Join our community to stay updated and connect with other book lovers:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with descriptive messages.
+4. Push your changes to your fork.
+5. Submit a pull request to the `main` branch of the Chapterly repository.
 
-- [Discord Community](https://discord.gg/J5G48J5h9m)
-- [Telegram Community](https://t.me/chapterly_app)
+## Contact
+
+If you have a PDF book that you'd like to contribute to Chapterly, or if you have any questions or concerns, please feel free to contact us at [info.pdfcafe@gmail.com](mailto:info.pdfcafe@gmail.com).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-**Chapterly** is crafted with love for readers like you. Enjoy a delightful reading experience!
-
-For support and inquiries, contact us at [info.pdfcafe@gmail.com](mailto:info.pdfcafe@gmail.com).
+Thank you for your interest in Chapterly! Happy Reading! ❤️
