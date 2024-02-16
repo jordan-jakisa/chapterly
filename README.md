@@ -13,17 +13,17 @@ Chapterly is an open source android application built to help users to discover 
 
 - **Community-Driven:** Chapterly encourages user contributions of PDF books, fostering a collaborative environment that empowers individuals and promotes a shared passion for reading.
 
-## ✨ Demo
+## ✨Demo
 
 https://github.com/jordan-jakisa/Chapterly/assets/72340216/93daee9f-8306-4cb6-a0eb-9feca09cb2f1
 
 
 
-## Download APK for Reading
+## 📲Download APK for Reading
 
 If you prefer to install the app directly on your Android device without using Android Studio, you can download the APK file from the [releases section](https://github.com/jordan-jakisa/Chapterly/releases). Once downloaded, install the APK on your device to start reading!
 
-## Running locally
+## 🚀 Running locally
 Follow these steps to run Chapterly on your local device:
 
 ### Clone the Repository
@@ -45,7 +45,7 @@ To access the Chapterly database, you need the google-services.json file. Please
 5. Build the project using the build button in the toolbar or by pressing Ctrl + F9 (Windows/Linux) or Cmd + F9 (Mac).
 6. Run the app on an emulator or a connected device using the run button in the toolbar or by pressing Shift + F10 (Windows/Linux) or Cmd + R (Mac).
 
-## Technologies Used
+## 🛠️Technologies Used
 
 Chapterly is built with a robust technology stack to provide a seamless reading experience:
 
@@ -59,14 +59,7 @@ Chapterly is built with a robust technology stack to provide a seamless reading 
 - **ViewModel:** Utilizes Android ViewModel to manage UI-related data and handle the app's lifecycle.
 - **WorkManager:** Incorporates WorkManager for background task scheduling, ensuring efficient execution of tasks like data synchronization.
 
-## Features
-
-- **Organize Your Library:** Easily organize and manage your PDF book collection.
-- **Intuitive Reading Experience:** Enjoy a user-friendly interface for comfortable reading.
-- **Bookmarking:** Bookmark your favorite pages for quick access.
-- **Night Mode:** Enable night mode for comfortable reading in low-light conditions.
-
-## Contributing
+## 🤝Contributing
 
 We welcome contributions from the community! If you'd like to contribute to Chapterly, please follow these steps:
 
@@ -76,11 +69,11 @@ We welcome contributions from the community! If you'd like to contribute to Chap
 4. Push your changes to your fork.
 5. Submit a pull request to the `main` branch of the Chapterly repository.
 
-## Contact
+## 📬Contact
 
 If you have a PDF book that you'd like to contribute to Chapterly, or if you have any questions or concerns, please feel free to contact us at [info.pdfcafe@gmail.com](mailto:info.pdfcafe@gmail.com).
 
-## License
+## 📄License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
