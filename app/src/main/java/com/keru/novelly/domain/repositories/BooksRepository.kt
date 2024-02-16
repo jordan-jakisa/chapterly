@@ -1,0 +1,20 @@
+package com.keru.novelly.domain.repositories
+
+import com.keru.novelly.data.data_source.local.models.Book
+import com.keru.novelly.utils.Resource
+import kotlinx.coroutines.flow.Flow
+
+interface BooksRepository {
+    suspend fun getRandomBooks(): Flow<Resource<List<Book>>>
+
+    suspend fun getPopularBooks(): Flow<Resource<List<Book>>>
+
+    suspend fun searchBooks(query: String): Flow<Resource<List<Book>>>
+
+    suspend fun getBookDetails(id: String): Flow<Resource<Book>>
+
+    suspend fun incrementDownloadCount(id: String)
+
+    suspend fun getCompletedBooks(names: List<String>): Flow<Resource<List<Book>>>
+
+}
