@@ -28,7 +28,6 @@ Chapterly is a fantastic Android application that brings a seamless reading expe
 ## Screenshots
 ![Beige minimalist photo collage](https://github.com/jordan-jakisa/novelly/assets/72340216/1e826123-5a3c-463c-8ddc-7f2b7cdf469e)
 
-
 ## Installation
 
 ### Prerequisites

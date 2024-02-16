@@ -224,7 +224,7 @@ fun AboutAppScreen(navController: NavController = rememberNavController()) {
             }
 
             Text(
-                text = "Made with ❤️ from Uganda!",
+                text = "Made with ❤️ from Uganda and teh world!",
                 fontSize = 12.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
