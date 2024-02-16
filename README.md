@@ -2,6 +2,9 @@
 
 Chapterly is an open source android application built to help users to discover and read books seamlessly and free.
 
+
+![Creative Studio Name LinkedIn Article Cover Image](https://github.com/jordan-jakisa/Chapterly/assets/72340216/46061141-2100-486c-844c-e676967315de)
+
 ## Project Overview
 
 - **Inspiration:** Chapterly was inspired by my struggle with limited access to free books, leading to the creation of a platform that facilitates free book discovery and reading.
