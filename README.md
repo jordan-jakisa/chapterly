@@ -13,6 +13,12 @@ Chapterly is an open source android application built to help users to discover 
 
 - **Community-Driven:** Chapterly encourages user contributions of PDF books, fostering a collaborative environment that empowers individuals and promotes a shared passion for reading.
 
+## ✨ Demo
+
+https://github.com/jordan-jakisa/Chapterly/assets/72340216/93daee9f-8306-4cb6-a0eb-9feca09cb2f1
+
+
+
 ## Download APK for Reading
 
 If you prefer to install the app directly on your Android device without using Android Studio, you can download the APK file from the [releases section](https://github.com/jordan-jakisa/Chapterly/releases). Once downloaded, install the APK on your device to start reading!
