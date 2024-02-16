@@ -17,16 +17,27 @@ Chapterly is an open source android application built to help users to discover 
 
 If you prefer to install the app directly on your Android device without using Android Studio, you can download the APK file from the [releases section](https://github.com/jordan-jakisa/Chapterly/releases). Once downloaded, install the APK on your device to start reading!
 
-## Open in Android Studio
+## Running locally
+Follow these steps to run Chapterly on your local device:
 
+### Clone the Repository
+
+1. Open a terminal window.
+2. Change the current working directory to the location where you want to clone the repository.
+3. Run the following command to clone the repository:
+   ```bash
+   git clone https://github.com/jordan-jakisa/Chapterly.git
+
+### Google Services Configuration
+To access the Chapterly database, you need the google-services.json file. Please contact me at info.pdfcafe@gmail.com to obtain this file.
+
+### Open in Android Studio
 1. Open Android Studio.
 2. Click on "Open an existing Android Studio project."
 3. Navigate to the directory where you cloned Chapterly and select it.
-
-## Build and Run
-
-1. Build the project using the build button in the toolbar or by pressing `Ctrl + F9` (Windows/Linux) or `Cmd + F9` (Mac).
-2. Run the app on an emulator or a connected device using the run button in the toolbar or by pressing `Shift + F10` (Windows/Linux) or `Cmd + R` (Mac).
+4. Build and Run
+5. Build the project using the build button in the toolbar or by pressing Ctrl + F9 (Windows/Linux) or Cmd + F9 (Mac).
+6. Run the app on an emulator or a connected device using the run button in the toolbar or by pressing Shift + F10 (Windows/Linux) or Cmd + R (Mac).
 
 ## Technologies Used
 
