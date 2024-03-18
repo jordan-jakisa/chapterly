@@ -62,6 +62,8 @@ class ReaderActivity : ComponentActivity() {
         try {
             if (!binding.pdfView.isRecycled) binding.pdfView.recycle()
 
+            binding.pdfView
+
             binding.pdfView.fromFile(file).defaultPage(currentPage).enableDoubletap(true)
                 .enableAnnotationRendering(true).spacing(16).enableAntialiasing(true)
                 .onPageChange { page, pageCount ->
