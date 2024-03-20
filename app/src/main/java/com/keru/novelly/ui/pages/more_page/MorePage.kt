@@ -20,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowForwardIos
 import androidx.compose.material.icons.automirrored.rounded.Login
 import androidx.compose.material.icons.automirrored.rounded.Logout
+import androidx.compose.material.icons.outlined.CloudUpload
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.rounded.Book
 import androidx.compose.material.icons.rounded.CardGiftcard
@@ -256,6 +257,9 @@ fun MorePage(
                 ) {
                     SettingsCard(title = "Settings", icon = Icons.Rounded.Settings) {
                         navController.navigate(Routes.SettingsPage.path)
+                    }
+                    SettingsCard(title = "Upload book", icon = Icons.Outlined.CloudUpload) {
+                        navController.navigate(Routes.UploadBookPage.path)
                     }
                     SettingsCard(title = "Request a Book", icon = Icons.Rounded.RequestPage) {
                         context.sendEmail(

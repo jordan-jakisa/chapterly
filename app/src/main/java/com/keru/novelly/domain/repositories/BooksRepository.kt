@@ -1,5 +1,6 @@
 package com.keru.novelly.domain.repositories
 
+import android.net.Uri
 import com.keru.novelly.data.data_source.local.models.Book
 import com.keru.novelly.utils.Resource
 import kotlinx.coroutines.flow.Flow
@@ -16,5 +17,9 @@ interface BooksRepository {
     suspend fun incrementDownloadCount(id: String)
 
     suspend fun getCompletedBooks(names: List<String>): Flow<Resource<List<Book>>>
+
+    suspend fun uploadBook(book: Book): Result<String>
+
+    suspend fun uploadBookCover(imageUri: Uri): Result<String>
 
 }

@@ -16,6 +16,9 @@ sealed class Routes(val path: String) {
     data object SettingsPage : Routes("settings_page")
     data object CompletedBooksPage : Routes("completed_books_page")
     data object UserPage : Routes("user_page")
+    data object UploadBookPage : Routes("upload_book_page")
+
+
 
 
 }

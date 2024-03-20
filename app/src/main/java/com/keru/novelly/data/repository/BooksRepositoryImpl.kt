@@ -1,5 +1,6 @@
 package com.keru.novelly.data.repository
 
+import android.net.Uri
 import android.util.Log
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -141,6 +142,22 @@ class BooksRepositoryImpl @Inject constructor(
         } else {
             emit(Resource.Success(data = emptyList()))
         }
+    }
+
+    override suspend fun uploadBook(book: Book): Result<String> {
+        return try {
+            val booksCollection = FirebasePaths.Books.path
+            fireStore.collection(booksCollection).document(book.bid).set(book).await()
+            Result.success("Book uploaded!")
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun uploadBookCover(imageUri: Uri): Result<String> {
+        //todo
+        return Result.success("Not yet implemented!")
+
     }
 
 }

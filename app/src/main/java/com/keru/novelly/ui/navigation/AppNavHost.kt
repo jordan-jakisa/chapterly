@@ -17,6 +17,7 @@ import com.keru.novelly.ui.pages.home.HomePage
 import com.keru.novelly.ui.pages.more_page.MorePage
 import com.keru.novelly.ui.pages.search.SearchPage
 import com.keru.novelly.ui.pages.settings_page.SettingsScreen
+import com.keru.novelly.ui.pages.uploadpage.UploadBookScreen
 import com.keru.novelly.ui.pages.user_profile_page.UserScreen
 
 @Composable
@@ -77,6 +78,10 @@ fun AppNavHost(
         }
         composable(Routes.UserPage.path) {
             UserScreen(navController = navController)
+        }
+
+        composable(Routes.UploadBookPage.path) {
+            UploadBookScreen(navController = navController)
         }
 
     }
