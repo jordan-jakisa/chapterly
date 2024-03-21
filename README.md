@@ -57,7 +57,7 @@ Chapterly is built with a robust technology stack to provide a seamless reading 
 - **Coil:** Integrates Coil for image loading, providing efficient and customizable image loading capabilities.
 - **Coroutines:** Implements Kotlin Coroutines to simplify asynchronous programming and enhance app responsiveness.
 - **ViewModel:** Utilizes Android ViewModel to manage UI-related data and handle the app's lifecycle.
-- **WorkManager:** Incorporates WorkManager for background task scheduling, ensuring efficient execution of tasks like data synchronization.
+- **WorkManager:** Incorporates WorkManager for background task scheduling, ensuring efficient execution of tasks like data synchronization. 
 
 ## 🤝Contributing
 
