@@ -18,8 +18,10 @@ interface BooksRepository {
 
     suspend fun getCompletedBooks(names: List<String>): Flow<Resource<List<Book>>>
 
-    suspend fun uploadBook(book: Book): Result<String>
 
-    suspend fun uploadBookCover(imageUri: Uri): Result<String>
+    suspend fun saveBook(book: Book): Result<String>
+    suspend fun uploadBook(bookUri: Uri, userId: String): Result<String>
+
+    suspend fun uploadBookCover(imageUri: Uri, bookTitle: String): Result<String>
 
 }

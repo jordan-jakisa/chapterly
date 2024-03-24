@@ -27,9 +27,15 @@ class UploadBookViewModel @Inject constructor(
         description: String,
         author: String,
         genre: String,
-        imageUri: Uri?,
-        bookRating: Float
+        imageUri: Uri,
+        bookRating: Float,
+        bookUri: Uri,
+        onComplete: () -> Unit
     ) {
+        uiState = uiState.copy(
+            isLoading = true
+        )
+
         val book = Book(
             bid = System.currentTimeMillis().toString() + (auth.currentUser?.uid ?: "nullUser"),
             title = title,
@@ -39,9 +45,37 @@ class UploadBookViewModel @Inject constructor(
             rating = bookRating.toFloat(),
             searchTerms = generateSearchTerms(title, author, genre)
         )
-
         viewModelScope.launch {
+            val imageLink = if (imageUri.toString().isNotEmpty()) {
+                booksRepository.uploadBookCover(imageUri, title).getOrNull()
+            } else null
 
+            val bookLink = if (bookUri.toString().isNotEmpty()) booksRepository.uploadBook(
+                bookUri,
+                auth.currentUser?.uid ?: "noUser"
+            ).getOrNull() else null
+
+            val newBook = book.copy(
+                image = imageLink ?: "",
+                book = bookLink ?: ""
+            )
+
+            val result = booksRepository.saveBook(newBook)
+            result.onSuccess {
+                uiState = uiState.copy(
+                    isLoading = false,
+                    message = it
+                )
+
+                onComplete()
+            }
+
+            result.onFailure {
+                uiState = uiState.copy(
+                    isLoading = false,
+                    error = it.message
+                )
+            }
         }
     }
 
@@ -53,5 +87,7 @@ class UploadBookViewModel @Inject constructor(
 }
 
 data class UploadBookUiState(
-    var error: String? = ""
+    var error: String? = "",
+    val isLoading: Boolean = false,
+    val message: String? = null
 )

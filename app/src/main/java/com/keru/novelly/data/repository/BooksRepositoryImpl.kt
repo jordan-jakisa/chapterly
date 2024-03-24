@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.Query
+import com.google.firebase.storage.FirebaseStorage
 import com.keru.novelly.data.data_source.local.models.Book
 import com.keru.novelly.data.data_source.local.models.genres
 import com.keru.novelly.domain.repositories.BooksRepository
@@ -21,7 +22,8 @@ import java.util.Locale
 import javax.inject.Inject
 
 class BooksRepositoryImpl @Inject constructor(
-    private val fireStore: FirebaseFirestore
+    private val fireStore: FirebaseFirestore,
+    private val storage: FirebaseStorage
 ) : BooksRepository {
 
     override suspend fun getRandomBooks(): Flow<Resource<List<Book>>> = flow {
@@ -144,7 +146,7 @@ class BooksRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun uploadBook(book: Book): Result<String> {
+    override suspend fun saveBook(book: Book): Result<String> {
         return try {
             val booksCollection = FirebasePaths.Books.path
             fireStore.collection(booksCollection).document(book.bid).set(book).await()
@@ -154,10 +156,33 @@ class BooksRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun uploadBookCover(imageUri: Uri): Result<String> {
-        //todo
-        return Result.success("Not yet implemented!")
+    override suspend fun uploadBook(bookUri: Uri, userId: String): Result<String> {
+        val path = "Books/" + userId + System.currentTimeMillis().toString()
+        val ref = storage.getReference(path)
+        return try {
+            ref.putFile(bookUri).await()
+            val downloadUrl = ref.downloadUrl.await()
+            Log.d("books", "Uri: $downloadUrl")
+            Result.success(downloadUrl.toString())
+        } catch (e: Exception) {
+            Log.d("books", "Error: ${e.message}")
+            Result.failure(e)
+        }
 
     }
 
+    override suspend fun uploadBookCover(imageUri: Uri, bookTitle: String): Result<String> {
+        val path = "Covers/" + bookTitle + System.currentTimeMillis().toString()
+        val ref = storage.getReference(path)
+
+        return try {
+            ref.putFile(imageUri).await()
+            val downloadUri = ref.downloadUrl.await()
+            Log.d("books", "Uri: $downloadUri")
+            Result.success(downloadUri.toString())
+        } catch (e: Exception) {
+            Log.d("books", "Error: ${e.message}")
+            Result.failure(e)
+        }
+    }
 }
