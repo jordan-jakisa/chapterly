@@ -39,9 +39,6 @@ fun BottomNavBar(
                     navController.navigate(item.route) {
                         restoreState = true
                         launchSingleTop = true
-                        /*popUpTo(navController.graph.findStartDestination().id) {
-                            saveState = true
-                        }*/
                     }
                 },
                 icon = { Icon(imageVector = item.icon, contentDescription = item.label) },

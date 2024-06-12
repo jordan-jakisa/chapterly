@@ -81,7 +81,9 @@ fun SearchResultsPage(
                                 text = "Not found the book you are looking for? ",
                                 fontSize = 14.sp
                             )
-                            TextButton(onClick = { /*TODO*/ }) {
+                            TextButton(onClick = {
+                                // write code to request for a book
+                            }) {
                                 Text(
                                     text = "Request for a book",
                                     fontSize = 12.sp

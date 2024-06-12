@@ -9,7 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.keru.novelly.data.data_source.local.models.Book
 import com.keru.novelly.data.data_source.network.models.User
-import com.keru.novelly.domain.repositories.BooksRepository
 import com.keru.novelly.domain.repositories.UserRepository
 import com.keru.novelly.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,7 +19,6 @@ import javax.inject.Inject
 class ProfileViewModel @Inject constructor(
     private val auth: FirebaseAuth,
     private val userRepository: UserRepository,
-    private val booksRepository: BooksRepository
 ) : ViewModel() {
 
     var uiState by mutableStateOf(MorePageUiState())
@@ -77,8 +75,7 @@ class ProfileViewModel @Inject constructor(
 
     fun deleteUser() {
         viewModelScope.launch {
-            val task = userRepository.deleteUserDetails()
-            when (task) {
+            when (val task = userRepository.deleteUserDetails()) {
                 is Resource.Success -> {
                     uiState = uiState.copy(
                         error = task.data
@@ -98,8 +95,7 @@ class ProfileViewModel @Inject constructor(
     fun updateUserDetails(uri: Uri?, name: String) {
         viewModelScope.launch {
             if (uri != null) {
-                val result = userRepository.uploadUserImage(uri)
-                when (result) {
+                when (val result = userRepository.uploadUserImage(uri)) {
                     is Resource.Success -> {
                         updateUserNameImage(result.data!!, name)
                     }

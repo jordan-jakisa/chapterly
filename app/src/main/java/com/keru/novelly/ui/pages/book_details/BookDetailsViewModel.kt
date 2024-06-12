@@ -7,7 +7,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.keru.novelly.data.data_source.local.models.Book
 import com.keru.novelly.domain.repositories.BooksRepository
 import com.keru.novelly.domain.use_cases.DownloadBookUseCase
@@ -23,7 +22,6 @@ class BookDetailsViewModel @Inject constructor(
     private val booksRepository: BooksRepository,
     private val downloadBookUseCase: DownloadBookUseCase,
     private val userInteractionsUseCase: UsersInteractionsUseCase,
-    private val fireStore: FirebaseFirestore
 ) : ViewModel() {
 
     var uiState by mutableStateOf(BookDetailsUiState())
@@ -36,28 +34,6 @@ class BookDetailsViewModel @Inject constructor(
     fun getBook(bookId: String) {
         viewModelScope.launch {
             Log.d("downloads", "getBook()")
-            /*val hasLiked =
-                if (bookId.isNotEmpty()) userInteractionsUseCase.hasUserLikedBook(bookId) else false
-
-            fireStore.collection(FirebasePaths.Books.path).document(bookId)
-                .addSnapshotListener { snapshot, error ->
-                    Log.d("downloads", "Listening ...")
-
-                    if (snapshot!!.exists()) {
-                        val book = snapshot.toObject(Book::class.java)
-                        uiState = uiState.copy(
-                            book = book,
-                            isLiked = hasLiked
-                        )
-                        Log.d("downloads", "Book : ${book?.title}")
-                    } else {
-                        Log.d("downloads", "Snapshot does not exist")
-                        uiState = uiState.copy(
-                            error = "An unknown error occurred!"
-                        )
-                    }
-
-                }*/
 
             booksRepository.getBookDetails(bookId).collect {
                 uiState = when (it) {

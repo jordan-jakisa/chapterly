@@ -23,31 +23,24 @@ class UploadBookViewModel @Inject constructor(
         private set
 
     fun uploadBook(
-        title: String,
-        description: String,
-        author: String,
-        genre: String,
-        imageUri: Uri,
-        bookRating: Float,
+        mBook: Book,
         bookUri: Uri,
+        imageUri: Uri,
         onComplete: () -> Unit
     ) {
         uiState = uiState.copy(
             isLoading = true
         )
 
-        val book = Book(
-            bid = System.currentTimeMillis().toString() + (auth.currentUser?.uid ?: "nullUser"),
-            title = title,
-            description = description,
-            authorName = author,
-            category = genre,
-            rating = bookRating.toFloat(),
-            searchTerms = generateSearchTerms(title, author, genre)
-        )
+
+        val book =
+            mBook.copy(
+                bid = System.currentTimeMillis().toString() + (auth.currentUser?.uid ?: "nullUser"),
+                searchTerms = generateSearchTerms(mBook.title, mBook.authorName, mBook.category)
+            )
         viewModelScope.launch {
             val imageLink = if (imageUri.toString().isNotEmpty()) {
-                booksRepository.uploadBookCover(imageUri, title).getOrNull()
+                booksRepository.uploadBookCover(imageUri, book.title).getOrNull()
             } else null
 
             val bookLink = if (bookUri.toString().isNotEmpty()) booksRepository.uploadBook(

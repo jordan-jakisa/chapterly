@@ -12,6 +12,7 @@ import com.keru.novelly.data.data_source.local.models.genres
 import com.keru.novelly.domain.repositories.BooksRepository
 import com.keru.novelly.utils.FirebasePaths
 import com.keru.novelly.utils.Resource
+import com.keru.novelly.utils.UNKNOWN_ERROR
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -53,7 +54,7 @@ class BooksRepositoryImpl @Inject constructor(
                     delay(1000) // Add a delay before retrying (adjust the duration as needed)
                 }
             } catch (e: Exception) {
-                emit(Resource.Error(message = e.message ?: "An unknown error occurred!"))
+                emit(Resource.Error(message = e.message ?: UNKNOWN_ERROR))
                 return@flow // Exit the loop in case of an exception
             }
         }
@@ -79,14 +80,12 @@ class BooksRepositoryImpl @Inject constructor(
                 emit(Resource.Error(message = "Document snapshot is empty!"))
             }
         } catch (e: Exception) {
-            emit(Resource.Error(message = e.message ?: "An unknown error occurred!"))
+            emit(Resource.Error(message = e.message ?: UNKNOWN_ERROR))
         }
     }
 
     override suspend fun searchBooks(query: String): Flow<Resource<List<Book>>> =
         flow<Resource<List<Book>>> {
-            val queries = query.lowercase(Locale.getDefault()).split(" ")
-
             val snapshot = fireStore.collection(FirebasePaths.Books.path)
                 .whereArrayContains("searchTerms", query.trim().lowercase(Locale.getDefault()))
                 //.whereIn("searchTerms", queries)
@@ -96,7 +95,7 @@ class BooksRepositoryImpl @Inject constructor(
             Log.d("Search", "Query results ==> ${books.size}")
             emit(Resource.Success(data = books))
         }.catch {
-            //emit(Resource.Error(message = it.message ?: "An unknown error occurred!"))
+            //emit(Resource.Error(message = it.message ?: UNKNOWN_ERROR))
             Log.d("Search", "Error ==> ${it}")
         }
 
@@ -118,7 +117,7 @@ class BooksRepositoryImpl @Inject constructor(
         } catch (e: FirebaseFirestoreException) {
             Log.d("BookTest", "Error ==> $e")
             value.tryEmit(
-                Resource.Error(message = e.message ?: "An unknown error occurred!")
+                Resource.Error(message = e.message ?: UNKNOWN_ERROR)
             )
         }
 

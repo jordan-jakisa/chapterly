@@ -97,11 +97,7 @@ fun RecoverPasswordScreen(
 
                 Button(onClick = {
                     if (email.isNotEmpty() && email.contains("@")) {
-                        isSending = true/*vm.recoverPassword(email) { result ->
-                            isSending = false
-                            if (result) isSuccess = true
-                            else isError = true
-                        }*/
+                        isSending = true
                     } else {
                         isEmailError = true
                     }
@@ -111,62 +107,4 @@ fun RecoverPasswordScreen(
             }
         }
     }
-
-    /*if (isError) {
-        Dialog(onDismissRequest = { isError = false }) {
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Column(modifier = Modifier.padding(32.dp)) {
-                    Text(
-                        text = "Failed to Send Password Reset Email",
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Text(
-                        style = MaterialTheme.typography.bodySmall,
-                        text = "😔 Oops! We encountered an issue while attempting to send the password reset email. Please try again later or contact our support team for assistance. We apologize for the inconvenience and appreciate your patience."
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    TextButton(
-                        onClick = { isError = false }, modifier = Modifier.align(Alignment.End)
-                    ) {
-                        Text(text = "Ok")
-
-                    }
-                }
-            }
-        }
-    }
-    if (isSuccess) {
-        Dialog(onDismissRequest = { isSuccess = false }) {
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Column(modifier = Modifier.padding(32.dp)) {
-                    Text(
-                        text = "Password Reset Email Sent",
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Text(
-                        style = MaterialTheme.typography.bodySmall,
-                        text = "Great news! We've just sent a password reset email to your registered email address. Please check your inbox and follow the instructions to regain access to your account. We're excited to have you back! 😊"
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    TextButton(
-                        onClick = { isSuccess = false }, modifier = Modifier.align(Alignment.End)
-                    ) {
-                        Text(text = "Ok")
-                    }
-                }
-            }
-        }
-    }
-    if (isSending) {
-        Dialog(onDismissRequest = { isSending = false }) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                CircularProgressIndicator()
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "Sending...", color = Color.White)
-            }
-        }
-    }*/
-
 }

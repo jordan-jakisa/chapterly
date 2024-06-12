@@ -206,7 +206,7 @@ fun MorePage(
                 }
             } else {
                 ElevatedCard(
-                    onClick = { /*TODO*/ },
+                    onClick = { },
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
                         .fillMaxWidth()

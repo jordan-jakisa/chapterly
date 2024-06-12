@@ -105,8 +105,7 @@ fun Context.sendEmail(subject: String, body: String) {
         putExtra(Intent.EXTRA_TEXT, body)
     }
 
-    if (intent.resolveActivity(this.packageManager) != null) this.startActivity(intent)
-    else this.startActivity(intent)
+    this.startActivity(intent)
 }
 
 fun Context.rateApp() {
@@ -130,6 +129,5 @@ fun Context.rateApp() {
 fun Context.openLink(link: String) {
     val uri = Uri.parse(link)
     val intent = Intent(Intent.ACTION_VIEW, uri)
-    if (intent.resolveActivity(this.packageManager) != null) this.startActivity(intent)
-    else this.startActivity(intent)
+    this.startActivity(intent)
 }

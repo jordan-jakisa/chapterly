@@ -57,6 +57,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.keru.novelly.data.data_source.local.models.Book
 import com.keru.novelly.data.data_source.local.models.genreDetailsList
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -247,14 +248,18 @@ fun UploadBookScreen(
 
             Button(
                 onClick = {
+                    val book =
+                        Book(
+                            title = title,
+                            description = description,
+                            authorName = author,
+                            category = genre,
+                            rating = bookRating.toFloat(),
+                        )
                     vm.uploadBook(
-                        title,
-                        description,
-                        author,
-                        genre,
-                        imageUri,
-                        bookRating.toFloat().coerceAtMost(5f),
-                        bookUri
+                        book,
+                        bookUri,
+                        imageUri
                     ) {
                         navController.navigateUp()
                     }
@@ -271,7 +276,9 @@ fun UploadBookScreen(
             visible = vm.uiState.isLoading,
             enter = slideInVertically { it },
             exit = slideOutVertically { it }) {
-            Dialog(onDismissRequest = { /*TODO*/ }) {
+            Dialog(onDismissRequest = {
+
+            }) {
                 ElevatedCard {
                     Text(text = "Uploading ... ", modifier = Modifier.padding(16.dp))
                 }

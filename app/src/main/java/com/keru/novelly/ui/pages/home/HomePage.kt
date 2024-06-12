@@ -1,7 +1,5 @@
 package com.keru.novelly.ui.pages.home
 
-import android.util.Log
-import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -45,7 +43,6 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -200,7 +197,7 @@ fun HomePage(
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     contentPadding = PaddingValues(horizontal = 16.dp),
                 ) {
-                    itemsIndexed(it) { index, book ->
+                    itemsIndexed(it) { _, book ->
                         BookCard(book = book, onClick = {
                             val path = Routes.BookDetails.path.replace("{bookId}", book.bid)
                             navController.navigate(path)

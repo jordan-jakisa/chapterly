@@ -7,6 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.keru.novelly.domain.repositories.UserRepository
 import com.keru.novelly.utils.FirebasePaths
 import com.keru.novelly.utils.Resource
+import com.keru.novelly.utils.UNKNOWN_ERROR
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -24,7 +25,6 @@ class UsersInteractionsUseCaseImpl @Inject constructor(
             }
 
             is Resource.Error -> {
-                val errorMessage = user.message
                 Log.d("Novelly", "Error ==> ${user.message}")
                 false
             }
@@ -40,7 +40,7 @@ class UsersInteractionsUseCaseImpl @Inject constructor(
             Resource.Success(data = true)
         } catch (e: Exception) {
             Log.d("Novelly", "Error ==> ${e.message}")
-            Resource.Error(message = e.message ?: "An unknown error occurred!", data = false)
+            Resource.Error(message = e.message ?: UNKNOWN_ERROR, data = false)
         }
     }
 
@@ -53,7 +53,7 @@ class UsersInteractionsUseCaseImpl @Inject constructor(
             Resource.Success(data = true)
         } catch (e: Exception) {
             Log.d("Novelly", "Error ==> ${e.message}")
-            Resource.Error(message = e.message ?: "An unknown error occurred!", data = false)
+            Resource.Error(message = e.message ?: UNKNOWN_ERROR, data = false)
         }
     }
 }

@@ -2,8 +2,6 @@ package com.keru.novelly.ui.pages.downloads
 
 import android.content.Intent
 import android.os.Build
-import android.util.Log
-import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -33,12 +31,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
- 
 import com.keru.novelly.R
 import com.keru.novelly.ui.components.BottomNavBar
 import com.keru.novelly.ui.components.CurrentlyReadingCard

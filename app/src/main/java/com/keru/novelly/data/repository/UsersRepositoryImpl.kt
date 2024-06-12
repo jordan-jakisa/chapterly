@@ -11,6 +11,7 @@ import com.keru.novelly.data.data_source.network.models.User
 import com.keru.novelly.domain.repositories.UserRepository
 import com.keru.novelly.utils.FirebasePaths
 import com.keru.novelly.utils.Resource
+import com.keru.novelly.utils.UNKNOWN_ERROR
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.tasks.await
@@ -26,7 +27,7 @@ class UsersRepositoryImpl @Inject constructor(
 
     override suspend fun getUserDetails(): Flow<Resource<User>> {
         val flow =
-            MutableStateFlow<Resource<User>>(Resource.Error(message = "An unknown error occurred!"))
+            MutableStateFlow<Resource<User>>(Resource.Error(message = UNKNOWN_ERROR))
         try {
             val path = FirebasePaths.Users.path
             val userId = auth.currentUser?.uid
@@ -40,14 +41,14 @@ class UsersRepositoryImpl @Inject constructor(
                     if (error != null) {
                         flow.tryEmit(
                             Resource.Error(
-                                message = error.message ?: "An unknown error occurred!"
+                                message = error.message ?: UNKNOWN_ERROR
                             )
                         )
                     }
                 }
         } catch (e: Exception) {
             flow.tryEmit(
-                Resource.Error(message = e.message ?: "An unknown error occurred!")
+                Resource.Error(message = e.message ?: UNKNOWN_ERROR)
             )
         }
         return flow
@@ -63,7 +64,7 @@ class UsersRepositoryImpl @Inject constructor(
 
             Resource.Success(data = "Deleted")
         } catch (e: Exception) {
-            Resource.Success(data = e.message ?: "An unknown error occurred!")
+            Resource.Success(data = e.message ?: UNKNOWN_ERROR)
         }
     }
 
@@ -106,7 +107,7 @@ class UsersRepositoryImpl @Inject constructor(
             val downloadUrl = ref.downloadUrl.await().toString()
             Resource.Success(data = downloadUrl)
         } catch (e: Exception) {
-            Resource.Error(message = e.message ?: "An unknown error occurred")
+            Resource.Error(message = e.message ?: UNKNOWN_ERROR)
         }
     }
 
@@ -123,7 +124,7 @@ class UsersRepositoryImpl @Inject constructor(
             Resource.Success(data = "Updated!")
         } catch (e: Exception) {
             Log.d("users", "Error ==> ${e.message}")
-            Resource.Error(message = e.message ?: "An unknown error occurred!")
+            Resource.Error(message = e.message ?: UNKNOWN_ERROR)
         }
 
     }

@@ -109,26 +109,6 @@ fun LoginPage(
         }
     )
 
-    if (isLoading) {
-        //Dialog
-    }
-
-    /*if (isLoading) {
-        Dialog(onDismissRequest = {
-            isLoading = false
-        }) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                CircularProgressIndicator(
-                    color = MaterialTheme.colorScheme.primary
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "Processing...")
-            }
-        }
-    }*/
-
     Scaffold(
         snackbarHost = {
             SnackbarHost(hostState = snackBarHostState)
@@ -221,24 +201,32 @@ fun LoginPage(
             ) {
                 Button(
                     onClick = {
-                        if (email.isEmpty()) {
-                            emailError = true
-                            scope.launch {
-                                snackBarHostState.showSnackbar("Email can not be empty.")
+                        when {
+                            email.isEmpty() -> {
+                                emailError = true
+                                scope.launch {
+                                    snackBarHostState.showSnackbar("Email can not be empty.")
+                                }
                             }
-                        } else if (!email.trim().contains("@")) {
-                            emailError = true
-                            scope.launch {
-                                snackBarHostState.showSnackbar("Badly formatted email")
+
+                            !email.trim().contains("@") -> {
+                                emailError = true
+                                scope.launch {
+                                    snackBarHostState.showSnackbar("Badly formatted email")
+                                }
                             }
-                        } else if (password.trim().length < 6) {
-                            passwordError = true
-                            scope.launch {
-                                snackBarHostState.showSnackbar("Password has to be least 6 characters.")
+
+                            password.trim().length < 6 -> {
+                                passwordError = true
+                                scope.launch {
+                                    snackBarHostState.showSnackbar("Password has to be least 6 characters.")
+                                }
                             }
-                        } else {
-                            vm.signInUser(email.trim(), password.trim())
-                            isLoading = true
+
+                            else -> {
+                                vm.signInUser(email.trim(), password.trim())
+                                isLoading = true
+                            }
                         }
                     },
                     modifier = Modifier.fillMaxWidth(.5f)

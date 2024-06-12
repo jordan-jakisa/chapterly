@@ -241,31 +241,43 @@ fun SignupPage(
             ) {
                 Button(
                     onClick = {
-                        if (password != confirmPassword) {
-                            scope.launch {
-                                snackBarHostState.showSnackbar("Passwords are not matching!")
+                        when {
+                            password != confirmPassword -> {
+                                scope.launch {
+                                    snackBarHostState.showSnackbar("Passwords are not matching!")
+                                }
                             }
-                        } else if (password.length < 6) {
-                            scope.launch {
-                                snackBarHostState.showSnackbar("Password should be atleast 6 characters!")
+
+                            password.length < 6 -> {
+                                scope.launch {
+                                    snackBarHostState.showSnackbar("Password should be atleast 6 characters!")
+                                }
                             }
-                        } else if (email.isEmpty()) {
-                            scope.launch {
-                                snackBarHostState.showSnackbar("Email cannot be blank!")
+
+                            email.isEmpty() -> {
+                                scope.launch {
+                                    snackBarHostState.showSnackbar("Email cannot be blank!")
+                                }
                             }
-                        } else if (password.isEmpty() || confirmPassword.isEmpty()) {
-                            scope.launch {
-                                snackBarHostState.showSnackbar("Passwords cannot be blank!")
+
+                            password.isEmpty() || confirmPassword.isEmpty() -> {
+                                scope.launch {
+                                    snackBarHostState.showSnackbar("Passwords cannot be blank!")
+                                }
                             }
-                        } else if (!email.trim().contains("@")) {
-                            scope.launch {
-                                snackBarHostState.showSnackbar("Invalid email format!")
+
+                            !email.trim().contains("@") -> {
+                                scope.launch {
+                                    snackBarHostState.showSnackbar("Invalid email format!")
+                                }
                             }
-                        } else {
-                            if (email.trim()
-                                    .contains("@") && email.isNotEmpty() && password == confirmPassword
-                            ) {
-                                vm.registerUser(email.trim(), password.trim())
+
+                            else -> {
+                                if (email.trim()
+                                        .contains("@") && email.isNotEmpty() && password == confirmPassword
+                                ) {
+                                    vm.registerUser(email.trim(), password.trim())
+                                }
                             }
                         }
                     }, modifier = Modifier.fillMaxWidth(.5f)

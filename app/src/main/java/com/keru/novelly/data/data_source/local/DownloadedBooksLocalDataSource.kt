@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Environment
 import android.util.Log
 import com.keru.novelly.utils.Resource
+import com.keru.novelly.utils.UNKNOWN_ERROR
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.File
@@ -24,7 +25,7 @@ class DownloadedBooksLocalDataSource @Inject constructor(
             else emit(Resource.Error(message = "Files are null!"))
 
         } catch (e: Exception) {
-            emit(Resource.Error(message = e.message ?: "An unknown error occurred!"))
+            emit(Resource.Error(message = e.message ?: UNKNOWN_ERROR))
         }
     }
 }

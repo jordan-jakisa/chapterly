@@ -1,12 +1,10 @@
 package com.keru.novelly.di
 
 import android.content.Context
-import com.keru.novelly.data.data_source.local.DownloadedBooksLocalDataSource
 import com.keru.novelly.data.repository.BooksRepositoryImpl
 import com.keru.novelly.domain.repositories.BooksRepository
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
