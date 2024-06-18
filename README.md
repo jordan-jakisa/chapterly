@@ -5,6 +5,8 @@ Chapterly is an open source android application built to help users to discover 
 
 ![Creative Studio Name LinkedIn Article Cover Image](https://github.com/jordan-jakisa/Chapterly/assets/72340216/46061141-2100-486c-844c-e676967315de)
 
+Learn more about the app on this blog post: [A healthy gut equals to a longer, happier life — MealPlanner app](https://medium.com/@jordan-mungujakisa/mealplanner-pro-a-new-way-to-track-and-plan-your-meals-9abb5cb6e6cd)
+
 ## Project Overview
 
 - **Inspiration:** Chapterly was inspired by my struggle with limited access to free books, leading to the creation of a platform that facilitates free book discovery and reading.
